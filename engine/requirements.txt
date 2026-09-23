@@ -20,7 +20,10 @@ aiosmtplib>=5.1.0
 litellm>=1.81.14
 openai>=2.21.0
 tiktoken>=0.12.0
-mcp>=1.0.0
+# mcp 2.x is a breaking major (e.g. McpError -> MCPError, lowlevel Server API
+# changes); laya/mcp/http_server.py targets 1.x. Unpinned, a fresh first-run
+# install pulls 2.x and the engine crashes on import.
+mcp>=1.0.0,<2
 
 # Vector DB
 chromadb>=1.5.1
